@@ -18,9 +18,15 @@ router.post('/login',valiations.validateUserData,userController.loginUser);
 
 router.get('/me',authMiddleware,userController.getMe);
 
+//GET /api/users/role/:id
+router.get('/role/:id',userController.getRole);
+
+
 // GET  /api/users/:id
 
 router.get('/:id',authMiddleware,userController.getUserById);
+
+
 
 
 

@@ -79,10 +79,26 @@ async function getUserById(req,res){
     }
 }
 
+async function getRole(req,res) {
+    try{
+        const {id}=req.params;
+        const User=userModel.findById(id).select('+name','+role','+email');
+
+        return res.status(200).json({
+            ...User
+        })
+    }
+    catch(err){
+        return res.status(500).json({
+            message:"Internal Server Error"
+        })
+    }
+}
 
 module.exports={
     createUser,
     loginUser,
     getMe,
-    getUserById
+    getUserById,
+    getRole
 }

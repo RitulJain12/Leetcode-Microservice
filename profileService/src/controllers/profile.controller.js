@@ -41,11 +41,36 @@ async function getProfileById(req,res) {
     }
 }
 
+async function updateProfile(req,res) {
+  try{
+
+    const {updates}=req;
+    console.log(updates);
+    const profile = await profileModel.findOneAndUpdate(
+        { user: req.user.id },
+        { $set: updates },
+        { new: true }
+      );
+    
+   return  res.json({
+        success: true,
+        data: profile
+      });
+  }
+
+  catch(err){
+    console.log(err);
+    return res.status(500).json({message:"Internal Server Error"});
+  }
+
+    
+}
+
 
 
 
 module.exports={
     createProfile,
-    getProfileById
-    
+    getProfileById,
+    updateProfile
 }
