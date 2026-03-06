@@ -6,9 +6,9 @@ const problemController=require('../controllers/problem.controller');
 const problemValidation=require('../validations/problem.validation');
 
 
-
+ 
 // POST api/problems/create
-router.post('/create',middleware.adminMiddleware,problemValidation.validateProblem,problemController.createProblem);
+router.post('/create',problemValidation.validateProblem,problemController.createProblem);
 
 //PUT  api/problems/update/:id
 router.put('/update/:id',middleware.adminMiddleware,problemValidation.updateProblem,problemController.updateProblem);

@@ -33,7 +33,38 @@ const profileSchema = new mongoose.Schema({
     strike:{
         type:Number,
         default:0
-    }
+    },
+    contests:[
+        {
+            contestId:{
+                type:mongoose.Schema.Types.ObjectId,
+            },
+            score:{
+                type:Number,
+                default:0
+            },
+            rank:{
+                type:Number,
+                default:0
+            },
+            finishedAt:{
+                type:Date,
+                default:Date.now
+            }
+        }
+    ],
+    activedays:[
+        {
+            date:{
+                type:Date,
+                default:Date.now
+            },
+            submissions:{
+                type:Number,
+                default:0
+            }
+        }
+    ]
 }, { timestamps: true });
 
 

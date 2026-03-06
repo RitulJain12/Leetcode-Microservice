@@ -1,9 +1,12 @@
-const express=require("express");
-const cors=require("cors");
-const cookieParser=require("cookie-parser");
-const problemRouter=require('./routes/problem.routes');
-const app=express();
-app.use(cors());
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const problemRouter = require('./routes/problem.routes');
+const app = express();
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -12,10 +15,10 @@ app.use(cookieParser());
 
 
 
-app.use('/api/problems',problemRouter);
+app.use('/api/problems', problemRouter);
 
 
 
 
 
-module.exports=app;
+module.exports = app;

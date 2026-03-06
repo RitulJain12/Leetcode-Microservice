@@ -11,13 +11,18 @@ msgqueue.connect().then(()=>{
     msgqueue.subscribetoQueue('Pofile-Creation',(data)=>{
        profileController.createProfile(data);
     })
+
+    msgqueue.subscribetoQueue('PROFILE-DATA-UPDATE',(data)=>{
+        profileController.updateSubmissions(data);
+     })
+
 })
 
-client.connect().then(()=>{
-    console.log("Connected to Redis");
-}).catch((err)=>{
-    console.log("Error connecting to Redis:", err);
-});
+// client.connect().then(()=>{
+//     console.log("Connected to Redis");
+// }).catch((err)=>{
+//     console.log("Error connecting to Redis:", err);
+// });
 
 
 const PORT=process.env.PORT;
