@@ -4,7 +4,7 @@ async function createProblem(req, res) {
         const { updates } = req;
     
         const problem = await problemModel.create(updates);
-        return res.status(201).json({ message: 'Problem created successfully', problem });
+        return res.status(201).json({ message: 'Problem created successfully', id:problem._id });
     }
     catch (error) {
         console.log(error);
