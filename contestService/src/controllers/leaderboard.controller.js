@@ -6,7 +6,7 @@ async function getLeaderboard(req, res) {
     try {
         const redisKey = `leaderboard:${contestId}`;
 
-        // Get top 100 users from Redis
+    
         const rawResults = await connection.zrevrange(redisKey, 0, 99, 'WITHSCORES');
 
         const leaderboard = [];
@@ -14,7 +14,7 @@ async function getLeaderboard(req, res) {
             const userId = rawResults[i];
             const compositeScore = parseFloat(rawResults[i + 1]);
 
-            // Extract original points (integer part)
+        
             const points = Math.floor(compositeScore);
 
             leaderboard.push({

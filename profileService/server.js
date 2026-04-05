@@ -18,11 +18,11 @@ msgqueue.connect().then(()=>{
 
 })
 
-// client.connect().then(()=>{
-//     console.log("Connected to Redis");
-// }).catch((err)=>{
-//     console.log("Error connecting to Redis:", err);
-// });
+client.connect().then(()=>{
+    console.log("Connected to Redis");
+}).catch((err)=>{
+    console.log("Error connecting to Redis:", err);
+});
 
 
 const PORT=process.env.PORT;

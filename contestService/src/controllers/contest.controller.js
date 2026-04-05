@@ -28,7 +28,7 @@ async function createcontest(req, res) {
             const savedQuestions = [];
             for (const q of data.questions) {
                 try {
-                    // Map AI response to problem service schema
+                    
                     const problemData = {
                         title: q.title,
                         description: q.description,
